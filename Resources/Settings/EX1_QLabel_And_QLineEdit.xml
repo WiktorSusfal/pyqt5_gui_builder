@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body>
+	<common>
+		<!-- 'common' node contains lists of some common settings like e.q. modules or classes used -->
+		<modules>
+			<!-- List of 'module' nodes representing the names of modules used for creating layout. It should be filled
+			out by the user to conform desired layout's requirements. 'id' must be unique -->
+			<module name="PyQt5.QtWidgets" id="0"/>
+		</modules>
+		<classes>
+			<!-- List of 'class' nodes for storing class names whose instances make up the result GUI layout. It should
+			be filled out by the user to conform desired layout's requirements. 'id' must be unique. -->
+			<class name="QLabel" id="0"/>
+			<class name="QLineEdit" id="1"/>
+			<class name="QHBoxLayout" id="2"/>
+		</classes>
+		<parent_object_types>
+			<!-- Types of parent objects for particular variable attributes/arguments described below. This list
+			 should NOT be changed by the user - it is only for information purposes.
+			 - "current object" - stands for the current object that is being created based on current 'component' xml node
+			 - "module" - stands for particular python module. If some XML node specifies this kind of parent type
+			 	('parent_type_id' = 1), then also the 'module_id' attribute must be specified in this node.
+			 - "base object" - stands for the object that calls the main GUI builder function (acts like a host-object
+			 	for result GUI Layout). Reference to this object is passed to builder function in the program. -->
+			<parent desc="current object" id="0"/>
+			<parent desc="module" id="1"/>
+			<parent desc="base object" id="2"/>
+		</parent_object_types>
+	</common>
+	<layouts>
+		<!-- List of 'layout' nodes that represent result GUI layouts. There is support for multiple layout's definitions
+		in one single xml config file. They are distinguished by 'name' attribute, so it must be unique.
+		'id' attribute is not used so far. -->
+		<layout name="1_QLabel_1_QLineEdit" id="0">
+			<components>
+				<!-- List of 'component' nodes representing single component objects of the parent layout. The first
+				'component' node should have 'type' attribute with 'self' value - it stands for the constructor of
+				the parent layout (without it the parent layout cannot be created). Other 'component' nodes should
+				have 'widget' value of 'type' attribute.
+				If parent layout is a QGridLayout, the child 'component' nodes should have 'row' and 'column' attributes
+				specified - to allow adding them to the parent layout.
+				There can be also nested 'layout' nodes - they stand for component layouts of the parent layout. They
+				don't need to have unique value of 'name' attribute. -->
+				<component type="self" module_id="0" class_id="2"/>
+				<component type="widget" module_id="0" class_id="0">
+					<constructor_args>
+						<!-- If constructor of the component object requires some arguments, they can be defined
+						here - by 'arg' nodes. Every 'arg' node should have 'value', 'type', and 'kind' attribute:
+						- value - the content of the constructor argument,
+						- type - datatype of the argument (so far the 'str', 'int' and 'var' are supported).
+							'var' stands for variable object from some module/object in python program.
+							Then, the 'value' should contain the string name of the variable object. In this case
+							there must be also 'parent_type_id' attribute specified.
+						- kind - specified if the argument is named or unnamed. If 'named', there also must be
+							'arg_name' attribute specified. -->
+						<arg value="Some basic text" type="str" kind="unnamed"/>
+						<arg value="myLabel_1" type="str" kind="named" arg_name="objectName"/>
+					</constructor_args>
+					<features>
+						<!-- List of 'feature' nodes that represents modifications that should be applied to the
+						current object (creating based on current 'component' xml node) after its creation. -->
+						<feature>
+							<feature_args>
+								<!-- Every 'feature' is applied by some function/method. Here can be arguments
+								for the func/method specified - by 'arg' nodes. These nodes work the same way
+								as the ones under 'constructor_args' xml node. -->
+								<arg value="150" type="int" kind="unnamed"/>
+								<arg value="50" type="int" kind="unnamed"/>
+							</feature_args>
+							<setting_attributes>
+								<!-- List of 'component_attr' nodes representing the components of desired
+								function/method that is responsible for implementing given feature to the current
+								creating object.
+								Sometimes there must be more that one 'component_attr' node specified - e.g.
+								for connecting a method to QPushButton, there must be the first node for "clicked"
+								property (with 'name' attribute = 'clicked') and the second for "connect" property
+								(with 'name' attribute = 'connect').
+								The result method/function is extracted "step-by-step" in such case. IMPORTANT -
+								in second and subsequent 'component_attr' nodes, the 'parent_type_id' attributes
+								that equal "0" represent current METHOD/PROPERTY extracted in previous step. -->
+								<component_attr parent_type_id="0" name="setFixedSize"/>
+							</setting_attributes>
+						</feature>
+					</features>
+				</component>
+				<component type="widget" module_id="0" class_id="1">
+					<constructor_args>
+						<arg value="Placeholder in LineEdit" type="str" kind="unnamed"/>
+						<arg value="myQLineEdit_1" type="str" kind="named" arg_name="objectName"/>
+					</constructor_args>
+					<features>
+						<feature>
+							<feature_args>
+								<arg value="350" type="int" kind="unnamed"/>
+								<arg value="150" type="int" kind="unnamed"/>
+							</feature_args>
+							<setting_attributes>
+								<component_attr parent_type_id="0" name="setFixedSize"/>
+							</setting_attributes>
+						</feature>
+					</features>
+				</component>
+			</components>
+		</layout>
+	</layouts>
+</body>
