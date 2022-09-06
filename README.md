@@ -19,3 +19,6 @@ So far the algorithm supports:
 
 1. Based on \Resources\Settings\EX1_QLabel_And_QLineEdit.xml config file - it contains definition of layout named "1_QLabel_1_QLineEdit". The result horizontal GUI layout consists of 1 QLabel and 1 QLineEdit edit in a single row. 
 2. Based on \Resources\Settings\EX2_2_Rows_Of_QLabel_And_QLineEdit.xml - it contains definition of layout named "2_Rows_Of_QLabel_QLineEdit". The result vertical GUI layout consists of 2 nested horizontal layouts - each with its own QLabel and QLineEdit objects. 
+3. Based on \Resources\Settings\EX3_TwoButtonsWithDifferentMethods.xml - it contains definition of layout named "Two_buttons_with_different_methods". The result grid GUI layout (QGridLayout object) consists of 2 buttons. Each button is connected to some method/function. One of them is connected to method from base object that called the GUI builder funtion, the other one is connected to some global function. 
+
+![My Image](/Resources/Presentation/Presentation-1_1.gif)
