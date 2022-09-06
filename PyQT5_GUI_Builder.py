@@ -450,8 +450,15 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         # Build the main layout attribute based on given XML config file.
-        self.gui_layout = PyQT5_GUI_Builder.returnGuiLayout('Resources/Settings/EX2_2_Rows_Of_QLabel_And_QLineEdit.xml',
-                                                            '2_Rows_Of_QLabel_QLineEdit',
+        # HERE THE PATH TO RELEVANT XML CONFIG FILE SHOULD BE SPECIFIED
+        # Path to 1st example file  - Resources/Settings/EX1_QLabel_And_QLineEdit.xml
+        #             layout name   - 1_QLabel_1_QLineEdit
+        # Path to 2nd example file  - Resources/Settings/EX2_2_Rows_Of_QLabel_And_QLineEdit.xml
+        #             layout name   - 2_Rows_Of_QLabel_QLineEdit
+        # Path to 3rd example file  - Resources/Settings/EX3_TwoButtonsWithDifferentMethods.xml
+        #             layout name   - Two_buttons_with_different_methods
+        self.gui_layout = PyQT5_GUI_Builder.returnGuiLayout('Resources/Settings/EX3_TwoButtonsWithDifferentMethods.xml',
+                                                            'Two_buttons_with_different_methods',
                                                             self)
 
         self.setWindowTitle('PyQt5 GUI Builder - from XML')
