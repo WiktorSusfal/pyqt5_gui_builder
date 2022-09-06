@@ -71,7 +71,7 @@
 								<!-- List of 'component_attr' nodes representing the components of desired
 								function/method that is responsible for implementing given feature to the current
 								creating object.
-								Sometimes there must be more that one 'component_attr' node specified - e.g.
+								Sometimes there must be more than one 'component_attr' node specified - e.g.
 								for connecting a method to QPushButton, there must be the first node for "clicked"
 								property (with 'name' attribute = 'clicked') and the second for "connect" property
 								(with 'name' attribute = 'connect').
