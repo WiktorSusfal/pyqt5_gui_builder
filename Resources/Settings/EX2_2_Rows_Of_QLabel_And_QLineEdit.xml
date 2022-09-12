@@ -51,7 +51,7 @@
 								<!-- If constructor of the component object requires some arguments, they can be defined
 								here - by 'arg' nodes. Every 'arg' node should have 'value', 'type', and 'kind' attribute:
 								- value - the content of the constructor argument,
-								- type - datatype of the argument (so far the 'str', 'int' and 'var' are supported).
+								- type - datatype of the argument (so far the 'str', 'int', 'var' and 'self' are supported).
 									* 'var' stands for variable object from some module/object in the python program.
 									The 'value' should contain the string name of the variable object. In this case
 									there must be also 'parent_type_id' attribute specified.
