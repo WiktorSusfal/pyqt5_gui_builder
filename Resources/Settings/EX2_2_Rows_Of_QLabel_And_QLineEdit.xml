@@ -52,9 +52,13 @@
 								here - by 'arg' nodes. Every 'arg' node should have 'value', 'type', and 'kind' attribute:
 								- value - the content of the constructor argument,
 								- type - datatype of the argument (so far the 'str', 'int' and 'var' are supported).
-									'var' stands for variable object from some module/object in python program.
-									Then, the 'value' should contain the string name of the variable object. In this case
+									* 'var' stands for variable object from some module/object in the python program.
+									The 'value' should contain the string name of the variable object. In this case
 									there must be also 'parent_type_id' attribute specified.
+									* 'self' stands for the current component that is being created based on XML 'component' node.
+									So this type of parameter should not be used inside 'constructor_args' node. It can be used
+									inside 'feature_args' node. With this datatype, the 'value' attribute is not used - leave
+									an empty string for example.
 								- kind - specified if the argument is named or unnamed. If 'named', there also must be
 									'arg_name' attribute specified. -->
 								<arg value="Label 1st row" type="str" kind="unnamed"/>
